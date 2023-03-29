@@ -15,9 +15,12 @@ const ApiMenu = ({
 
   const apiKey = useStore((state) => state.apiKey);
   const setApiKey = useStore((state) => state.setApiKey);
+  const apiFree = useStore((state) => state.apiFree);
+  const setApiFree = useStore((state) => state.setApiFree);
   const apiEndpoint = useStore((state) => state.apiEndpoint);
   const setApiEndpoint = useStore((state) => state.setApiEndpoint);
 
+  const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
   const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
   const [_apiEndpoint, _setApiEndpoint] = useState<string>(apiEndpoint);
   const [_customEndpoint, _setCustomEndpoint] = useState<boolean>(
@@ -25,6 +28,7 @@ const ApiMenu = ({
   );
 
   const handleSave = () => {
+    setApiFree(_apiFree);
     setApiKey(_apiKey);
     setApiEndpoint(_apiEndpoint);
     setIsModalOpen(false);
@@ -43,7 +47,7 @@ const ApiMenu = ({
       handleConfirm={handleSave}
     >
       <div className='p-6 border-b border-gray-200 dark:border-gray-600'>
-        <label className='flex gap-2 text-gray-900 dark:text-gray-300 text-sm items-center mb-4'>
+        {/* <label className='flex gap-2 text-gray-900 dark:text-gray-300 text-sm items-center mb-4'>
           <input
             type='checkbox'
             checked={_customEndpoint}
@@ -51,7 +55,7 @@ const ApiMenu = ({
             onChange={handleToggleCustomEndpoint}
           />
           {t('customEndpoint', { ns: 'api' })}
-        </label>
+        </label> */}
 
         <div className='flex gap-2 items-center justify-center mb-6'>
           <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
@@ -75,41 +79,92 @@ const ApiMenu = ({
           )}
         </div>
 
-        <div className='flex gap-2 items-center justify-center mt-2'>
-          <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-            {t('apiKey.inputLabel', { ns: 'api' })}
-          </div>
+        {/* <label className='flex items-center mb-2 gap-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
           <input
-            type='text'
-            className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-            value={_apiKey}
-            onChange={(e) => {
-              _setApiKey(e.target.value);
-            }}
+            type='radio'
+            checked={_apiFree === true}
+            className='w-4 h-4'
+            onChange={() => _setApiFree(true)}
           />
-        </div>
+          {t('apiEndpoint.option', { ns: 'api' })}
+        </label> */}
 
-        <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm flex flex-col gap-3 leading-relaxed'>
-          <p className='mt-4'>
-            <Trans
-              i18nKey='apiKey.howTo'
-              ns='api'
-              components={[
-                <a
-                  href='https://platform.openai.com/account/api-keys'
-                  className='link'
-                  target='_blank'
-                />,
-              ]}
+        {_apiFree && (
+          <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm my-2'>
+            {t('apiEndpoint.note', { ns: 'api' })}
+          </div>
+        )}
+
+        <label className='flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+          <input
+            type='radio'
+            checked={_apiFree === false}
+            className='w-4 h-4'
+            onChange={() => _setApiFree(false)}
+          />
+          {t('apiKey.option', { ns: 'api' })}
+        </label>
+
+        {_apiFree === false && (
+          <div className='flex gap-2 items-center justify-center mt-2'>
+            <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
+              {t('apiKey.inputLabel', { ns: 'api' })}
+            </div>
+            <input
+              type='text'
+              className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
+              value={_apiKey}
+              onChange={(e) => {
+                _setApiKey(e.target.value);
+              }}
             />
-          </p>
+          </div>
+        )}
 
-          <p>{t('securityMessage', { ns: 'api' })}</p>
+        {/* <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4 text-center'>
+          <Trans
+            i18nKey='apiKey.howTo'
+            ns='api'
+            components={[
+              <a
+                href='https://platform.openai.com/account/api-keys'
+                className='link'
+                target='_blank'
+              />,
+            ]}
+          />
+        </div> */}
 
-          <p>{t('apiEndpoint.description', { ns: 'api' })}</p>
+        {/* <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
+          {t('securityMessage', { ns: 'api' })}
+        </div> */}
 
-          <p>{t('apiEndpoint.warn', { ns: 'api' })}</p>
-        </div>
+        {/* <div className='mt-4 p-1 border border-gray-500 rounded-md text-sm font-medium text-gray-900 dark:text-gray-300 text-center'>
+          <Trans
+            i18nKey='apiEndpoint.description'
+            ns='api'
+            components={[
+              <a
+                href='https://github.com/ayaka14732/ChatGPTAPIFree'
+                className='link'
+                target='_blank'
+              />,
+            ]}
+          />
+        </div> */}
+        {/* <div className='mt-4 p-1 border border-gray-500 rounded-md text-sm font-medium text-gray-900 dark:text-gray-300 text-center'>
+          <Trans
+            i18nKey='shareGPT'
+            ns='api'
+            components={[
+              <a
+                href='https://github.com/acheong08/ShareGPT'
+                className='link'
+                target='_blank'
+              />,
+            ]}
+          />
+        </div> */}
       </div>
     </PopupModal>
   );

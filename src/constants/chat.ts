@@ -10,9 +10,8 @@ const dateString =
   ('0' + date.getDate()).slice(-2);
 
 // default system message obtained using the following method: https://twitter.com/DeminDimin/status/1619935545144279040
-export const _defaultSystemMessage = `You are ChatGPT, a large language model trained by OpenAI.
-Carefully heed the user's instructions. 
-Respond using Markdown.`;
+export const _defaultSystemMessage = `你是 ChatGPT, 超级AI
+当前日期: ${dateString}`;
 
 export const modelOptions: ModelOptions[] = [
   'gpt-3.5-turbo',
