@@ -31,6 +31,7 @@ i18n
     },
     ns: ['main', 'api', 'about', 'model'],
     defaultNS: 'main',
+    lng: 'zh-CN'
   });
 
 export default i18n;

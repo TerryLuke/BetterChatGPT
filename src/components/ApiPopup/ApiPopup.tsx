@@ -55,7 +55,7 @@ const ApiPopup = () => {
           />
         </div>
 
-        <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
+        {/* <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
           <Trans
             i18nKey='apiKey.howTo'
             ns='api'
@@ -67,7 +67,7 @@ const ApiPopup = () => {
               />,
             ]}
           />
-        </div>
+        </div> */}
         <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
           <Trans
             i18nKey='advancedConfig'
@@ -84,9 +84,9 @@ const ApiPopup = () => {
           />
         </div>
 
-        <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
+        {/* <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
           {t('securityMessage', { ns: 'api' })}
-        </div>
+        </div> */}
 
         {error.length > 0 && (
           <div className='relative py-2 px-3 w-full mt-3 border rounded-md border-red-500 bg-red-500/10'>

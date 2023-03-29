@@ -47,7 +47,7 @@ const ApiMenu = ({
       handleConfirm={handleSave}
     >
       <div className='p-6 border-b border-gray-200 dark:border-gray-600'>
-        <label className='flex gap-2 text-gray-900 dark:text-gray-300 text-sm items-center mb-4'>
+        {/* <label className='flex gap-2 text-gray-900 dark:text-gray-300 text-sm items-center mb-4'>
           <input
             type='checkbox'
             checked={_customEndpoint}
@@ -55,7 +55,7 @@ const ApiMenu = ({
             onChange={handleToggleCustomEndpoint}
           />
           {t('customEndpoint', { ns: 'api' })}
-        </label>
+        </label> */}
 
         <div className='flex gap-2 items-center justify-center mb-6'>
           <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
@@ -79,7 +79,7 @@ const ApiMenu = ({
           )}
         </div>
 
-        <label className='flex items-center mb-2 gap-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+        {/* <label className='flex items-center mb-2 gap-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
           <input
             type='radio'
             checked={_apiFree === true}
@@ -87,7 +87,7 @@ const ApiMenu = ({
             onChange={() => _setApiFree(true)}
           />
           {t('apiEndpoint.option', { ns: 'api' })}
-        </label>
+        </label> */}
 
         {_apiFree && (
           <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm my-2'>
@@ -121,7 +121,7 @@ const ApiMenu = ({
           </div>
         )}
 
-        <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4 text-center'>
+        {/* <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4 text-center'>
           <Trans
             i18nKey='apiKey.howTo'
             ns='api'
@@ -133,13 +133,13 @@ const ApiMenu = ({
               />,
             ]}
           />
-        </div>
+        </div> */}
 
-        <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
+        {/* <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
           {t('securityMessage', { ns: 'api' })}
-        </div>
+        </div> */}
 
-        <div className='mt-4 p-1 border border-gray-500 rounded-md text-sm font-medium text-gray-900 dark:text-gray-300 text-center'>
+        {/* <div className='mt-4 p-1 border border-gray-500 rounded-md text-sm font-medium text-gray-900 dark:text-gray-300 text-center'>
           <Trans
             i18nKey='apiEndpoint.description'
             ns='api'
@@ -151,8 +151,8 @@ const ApiMenu = ({
               />,
             ]}
           />
-        </div>
-        <div className='mt-4 p-1 border border-gray-500 rounded-md text-sm font-medium text-gray-900 dark:text-gray-300 text-center'>
+        </div> */}
+        {/* <div className='mt-4 p-1 border border-gray-500 rounded-md text-sm font-medium text-gray-900 dark:text-gray-300 text-center'>
           <Trans
             i18nKey='shareGPT'
             ns='api'
@@ -164,7 +164,7 @@ const ApiMenu = ({
               />,
             ]}
           />
-        </div>
+        </div> */}
       </div>
     </PopupModal>
   );
