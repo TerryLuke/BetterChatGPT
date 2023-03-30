@@ -15,12 +15,12 @@ const ApiMenu = ({
 
   const apiKey = useStore((state) => state.apiKey);
   const setApiKey = useStore((state) => state.setApiKey);
-  const apiFree = useStore((state) => state.apiFree);
-  const setApiFree = useStore((state) => state.setApiFree);
+  // const apiFree = useStore((state) => state.apiFree);
+  // const setApiFree = useStore((state) => state.setApiFree);
   const apiEndpoint = useStore((state) => state.apiEndpoint);
   const setApiEndpoint = useStore((state) => state.setApiEndpoint);
 
-  const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
+  // const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
   const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
   const [_apiEndpoint, _setApiEndpoint] = useState<string>(apiEndpoint);
   const [_customEndpoint, _setCustomEndpoint] = useState<boolean>(
@@ -28,7 +28,7 @@ const ApiMenu = ({
   );
 
   const handleSave = () => {
-    setApiFree(_apiFree);
+    // setApiFree(_apiFree);
     setApiKey(_apiKey);
     setApiEndpoint(_apiEndpoint);
     setIsModalOpen(false);
@@ -89,23 +89,23 @@ const ApiMenu = ({
           {t('apiEndpoint.option', { ns: 'api' })}
         </label> */}
 
-        {_apiFree && (
+        {/* {(
           <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm my-2'>
             {t('apiEndpoint.note', { ns: 'api' })}
           </div>
-        )}
+        )} */}
 
-        <label className='flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+        {/* <label className='flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
           <input
             type='radio'
-            checked={_apiFree === false}
+            checked={true}
             className='w-4 h-4'
-            onChange={() => _setApiFree(false)}
+            onChange={() => {}}
           />
           {t('apiKey.option', { ns: 'api' })}
-        </label>
+        </label> */}
 
-        {_apiFree === false && (
+        {(
           <div className='flex gap-2 items-center justify-center mt-2'>
             <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
               {t('apiKey.inputLabel', { ns: 'api' })}
@@ -191,9 +191,8 @@ const ApiEndpointSelector = ({
       </button>
       <div
         id='dropdown'
-        className={`${
-          dropDown ? '' : 'hidden'
-        } absolute top-100 bottom-100 z-10 bg-white rounded-lg shadow-xl border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800 opacity-90 w-32 w-full`}
+        className={`${dropDown ? '' : 'hidden'
+          } absolute top-100 bottom-100 z-10 bg-white rounded-lg shadow-xl border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800 opacity-90 w-32 w-full`}
       >
         <ul
           className='text-sm text-gray-700 dark:text-gray-200 p-0 m-0'
